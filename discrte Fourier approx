@@ -1,0 +1,94 @@
+import numpy as np
+import math
+from math import e
+
+
+xval=np.ndarray(shape=(11,1), dtype = 'float')
+
+pi= np.pi
+
+yval=np.ndarray(shape=(11,1), dtype = 'float')
+
+#smaple point cale
+for i in range (0,11):
+    xval[i] = -pi+ (i/6)*pi
+
+# yval calc
+for i in range (0,11):
+    
+    yval[i]= e**xval[i]
+    
+    print(xval[i])
+    print(yval[i])
+    print()   
+
+    
+    
+#cosine coeffiecients
+    
+#sum for k=0
+sro0=0    
+
+for i in range (0,11):
+    sro0= sro0 + yval[i]
+    
+real_sro0= (1/6)*sro0
+print('real sro0 is ',real_sro0 )
+
+    
+#sum for k=1
+sro1=0    
+
+for i in range (0,11):
+    sro1= sro1 + yval[i]*math.cos(xval[i])
+    
+real_srol1= (1/6)*sro1
+print('real srol1 is ',real_srol1 )
+
+
+#sum for k=2
+sro2=0    
+
+for i in range (0,11):
+    sro2= sro2 + yval[i]*math.cos(2*xval[i])
+    
+real_srol2= (1/6)*sro2
+print('real srol2 is ',real_srol2 )
+
+
+#sum for k=3
+sro3=0    
+
+for i in range (0,11):
+    sro3= sro3 + yval[i]*math.cos(3*xval[i])
+    
+real_srol3= (1/6)*sro3
+print('real srol3 is ',real_srol3 )
+
+
+
+
+
+
+#sine coeficients
+
+
+#sum for k=1
+sps1=1    
+
+for i in range (0,11):
+    sps1= sps1 + yval[i]*math.sin(1*xval[i])
+    
+real_sps1= (1/6)*sps1
+print('real sps1 is ',real_sps1 )
+
+#sum for k=0
+sps2=0    
+
+for i in range (0,11):
+    sps2= sps2 + yval[i]*math.sin(2*xval[i])
+    
+real_sps2= (1/6)*sps2
+print('real sps2 is ',real_sps2 )
+
+print('real_sro0/2',real_sro0/2)
